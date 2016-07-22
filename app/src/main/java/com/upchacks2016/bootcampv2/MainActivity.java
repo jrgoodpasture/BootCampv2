@@ -55,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
         workouts.add(new Workout("Carl", new LatLng(41.3865, 2.2028), "Port Olimpic", "Olympic Training", new Time(9,30,0)));
 
 
+//        //Button add = (Button) View.findViewById(R.id.createButton);
+//        //add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //AlertDialog.Builder popup = new AlertDialog.Builder();
+//                popup.setTitle("Create Workout");
+//
+//         //       View view3 = View.inflate(MainActivity.this, R.layout.createworkout, null);
+//
+//
+//            }
+//        });
 
         workoutAdapter adapter = new workoutAdapter(this, workouts);
         workoutList.setAdapter(adapter);

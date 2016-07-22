@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/nameText"
-        android:layout_gravity="center_vertical"
-        android:hint="Name" />
-</LinearLayout>
+        android:text="Name"
+        android:id="@+id/createName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Location Name"
+        android:id="@+id/loc"
+        android:layout_below="@+id/createName"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="52dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="LatLng"
+        android:id="@+id/gps"
+        android:layout_below="@+id/loc"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="76dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Workout"
+        android:id="@+id/exercising"
+        android:layout_below="@+id/gps"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="80dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/time"
+        android:layout_below="@+id/exercising"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="74dp"
+        android:text="Time" />
+</RelativeLayout>
