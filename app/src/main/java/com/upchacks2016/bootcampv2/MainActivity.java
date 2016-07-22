@@ -1,14 +1,18 @@
 package com.upchacks2016.bootcampv2;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,6 +36,45 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button a = (Button) findViewById(R.id.sidebarButton);
+
+        final Activity activity = this;
+        a.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(MainActivity.this, Exercise.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setTitle("EGGS R SIDES");
+
+                View view = View.inflate(activity, R.layout.exercisewindow, null);
+
+                builder.setView(view);
+                builder.setPositiveButton("OKAY", null);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                Button b = (Button) view.findViewById(R.id.tName);
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(activity);
+                        builder2.setTitle("TRAIN OR PRO FEEL");
+
+                        View view2 = View.inflate(activity, R.layout.userwindow, null);
+
+                        builder2.setView(view2);
+                        builder2.setPositiveButton("OKAY", null);
+
+                        AlertDialog dialog2 = builder2.create();
+                        dialog2.show();
+                    }
+                });
+
+
+            }
+        }));
+
 
         workoutList = (ListView) findViewById(R.id.listView);
         workoutList.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);

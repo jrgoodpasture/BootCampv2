@@ -41,7 +41,13 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" ></activity>
+        <activity android:name=".Pop"
+            android:theme="@style/AppTheme.UserTheme"
+            ></activity>
+        <activity android:name=".Exercise"
+            android:theme="@style/AppTheme.UserTheme"
+            ></activity>
     </application>
 
 </manifest>
