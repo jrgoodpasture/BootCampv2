@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
         //Creating a preset list of workouts
         final ArrayList<Workout> workouts = new ArrayList<Workout>();
         workouts.add(new Workout("Jacob", new LatLng(41.388756, 2.184864), "Parc de la Ciutadella", "Jogging", new Time(12,30,0)));
-        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(12,30,0)));
-        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(12,30,0)));
-        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(12,30,0)));
+        workouts.add(new Workout("Paul", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Sprints", new Time(1,30,0)));
+        workouts.add(new Workout("Neil", new LatLng(41.393753,  2.1842620), "Parc de l'Estacio Nord", "Yoga", new Time(15,30,0)));
+        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(9,30,0)));
 
         workoutAdapter adapter = new workoutAdapter(this, workouts);
         workoutList.setAdapter(adapter);
@@ -94,10 +94,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 LatLng location = workouts.get(position).location;
+                String locName = workouts.get(position).locName;
                 //LatLng location = new LatLng(dlat, dlng);
                 Intent goToMap = new Intent(getApplicationContext(), MapsActivity.class);
-                goToMap.putExtra("location", location);
-                goToMap.putExtra("locName", workouts.get(position).locName);
+                Bundle mapInfo = new Bundle();
+                mapInfo.putParcelable("location", location);
+                mapInfo.putString("locName", locName);
+                //goToMap.putExtras("location", location);
+                //goToMap.putExtra("locName", locName);
+                goToMap.putExtras(mapInfo);
                 startActivity(goToMap);
                 finish();
 

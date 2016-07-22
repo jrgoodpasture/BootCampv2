@@ -8,6 +8,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -40,10 +41,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         Intent i = getIntent();
         LatLng location = i.getParcelableExtra("location");
-        String locName = i.getParcelableExtra("locName");
+        String locName = i.getStringExtra("locName");
+        System.out.println("LocName: " + locName);
+
         // Add a marker in Sydney and move the camera
         //LatLng location = new LatLng(41.3896369,2.1172903);
         mMap.addMarker(new MarkerOptions().position(location).title(locName));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+
+
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(location)      // Sets the center of the map to Mountain View
+                .zoom(17)                   // Sets the zoom
+                .bearing(90)                // Sets the orientation of the camera to east
+                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                .build();                   // Creates a CameraPosition from the builder
+        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 }
