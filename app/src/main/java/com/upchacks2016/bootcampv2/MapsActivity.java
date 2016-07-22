@@ -1,5 +1,6 @@
 package com.upchacks2016.bootcampv2;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -37,10 +38,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        //Intent i = getIntent();
+        //LatLng location = i.getParcelableExtra("location");
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(41.3896369,2.1172903);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Parc de Pedralbes"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng location = new LatLng(41.3896369,2.1172903);
+        mMap.addMarker(new MarkerOptions().position(location).title("Parc de Pedralbes"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
     }
 }

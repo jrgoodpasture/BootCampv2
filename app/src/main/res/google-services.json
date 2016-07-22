@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "822023182317",
+    "project_id": "default-demo-app-87ed7"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822023182317:android:06e4a939eb199817",
+        "android_client_info": {
+          "package_name": "com.upchacks2016.bootcampv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822023182317-alkk41mpd0ilvo7idahadmoi917r6g10.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.upchacks2016.bootcampv2",
+            "certificate_hash": "ADC8762367E3810061601F90AAE1CD03BF3370D3"
+          }
+        },
+        {
+          "client_id": "822023182317-3nj2t7cvs4h8kqqkenvv2jt8flss5bfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw8EV3MKo7kHiv_ke57KjeYVvyRO0xxIY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.upchacks2016.bootcampv2.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:background="@color/brightBlue">
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -26,7 +27,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:layout_marginTop="131dp"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@color/lightGrey"
+        android:clickable="false"
+        android:focusable="false" />
 
     <Button
         android:layout_width="wrap_content"
@@ -47,5 +51,18 @@
         android:layout_toEndOf="@+id/searchButton"
         android:hint="Search"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="BootCamp"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/textView"
+        android:layout_alignEnd="@+id/listView"
+        android:layout_alignTop="@+id/sidebarButton"
+        android:layout_alignStart="@+id/textView"
+        android:password="false"
+        android:textSize="40dp" />
 
 </RelativeLayout>
