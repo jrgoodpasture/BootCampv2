@@ -13,15 +13,6 @@
     tools:showIn="@layout/activity_main"
     android:background="@color/brightBlue">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sidebarButton"
-        android:layout_marginStart="34dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,12 +51,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="BootCamp"
         android:id="@+id/textView2"
-        android:layout_above="@+id/textView"
-        android:layout_alignEnd="@+id/listView"
-        android:layout_alignTop="@+id/sidebarButton"
-        android:layout_alignStart="@+id/textView"
         android:password="false"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
