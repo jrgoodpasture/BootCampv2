@@ -34,11 +34,18 @@ public class workoutAdapter extends ArrayAdapter<model.Workout>{
         TextView timeText = (TextView) convertView.findViewById(R.id.timeText);
         // Populate the data into the template view using the data object
         trainerName.setText(workout.trainerName);
-        locationText.setText(workout.location.toString());
+        locationText.setText(workout.locName.toString());
         activityText.setText(workout.activity);
         timeText.setText(workout.time.toString());
         // Return the completed view to render on screen
+        convertView.setFocusable(false);
         return convertView;
+    }
+
+    @Override
+    public boolean isEnabled(int position)
+    {
+        return true;
     }
 
 

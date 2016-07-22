@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -37,26 +38,23 @@ public class MainActivity extends AppCompatActivity {
         workoutList.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
 
         //Creating a preset list of workouts
-        ArrayList<Workout> workouts = new ArrayList<Workout>();
-        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Jogging", new Time(12,30,0)));
-        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Jogging", new Time(12,30,0)));
-        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Jogging", new Time(12,30,0)));
-        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Jogging", new Time(12,30,0)));
+        final ArrayList<Workout> workouts = new ArrayList<Workout>();
+        workouts.add(new Workout("Jacob", new LatLng(41.388756, 2.184864), "Parc de la Ciutadella", "Jogging", new Time(12,30,0)));
+        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(12,30,0)));
+        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(12,30,0)));
+        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(12,30,0)));
 
         workoutAdapter adapter = new workoutAdapter(this, workouts);
         workoutList.setAdapter(adapter);
         workoutList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("Clicked!");
-                TextView locationText = (TextView) view.findViewById(R.id.locationText);
-                String locString = locationText.toString();
-                List<String> latLong = Arrays.asList(locString.split(","));
-                String lat = latLong.get(0);
-                String lng = latLong.get(1);
-                LatLng location = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
+
+                LatLng location = workouts.get(position).location;
+                //LatLng location = new LatLng(dlat, dlng);
                 Intent goToMap = new Intent(getApplicationContext(), MapsActivity.class);
                 goToMap.putExtra("location", location);
+                goToMap.putExtra("locName", workouts.get(position).locName);
                 startActivity(goToMap);
                 finish();
 
