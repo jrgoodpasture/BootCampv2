@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,6 +18,8 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.sql.Time;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -47,8 +51,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         Intent i = getIntent();
         LatLng location = i.getParcelableExtra("location");
-        String locName = i.getStringExtra("locName");
-        System.out.println("LocName: " + locName);
+        final String locName = i.getStringExtra("locName");
+        final String trainerName = i.getStringExtra("trainerName");
+        final String workoutActivity = i.getStringExtra("activity");
+        final Time time = (Time) i.getSerializableExtra("time");
 
         // Add a marker in Sydney and move the camera
         //LatLng location = new LatLng(41.3896369,2.1172903);
@@ -67,9 +73,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public boolean onMarkerClick(Marker marker) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setTitle("EGGS R SIDES");
+                builder.setTitle(workoutActivity);
 
                 View view = View.inflate(activity, R.layout.exercisewindow, null);
+
+                TextView trainerNameText = (TextView) view.findViewById(R.id.trainerNameText);
+                trainerNameText.setText(trainerName);
+                TextView timeText = (TextView) view.findViewById(R.id.timeText);
+                timeText.setText("Time: " + time.toString());
+                TextView placeText = (TextView) view.findViewById(R.id.placeText);
+                placeText.setText(locName);
 
                 builder.setView(view);
                 builder.setPositiveButton("OKAY", null);
@@ -77,7 +90,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 AlertDialog dialog = builder.create();
                 dialog.show();
 
-                Button b = (Button) view.findViewById(R.id.tName);
+                /*Button b = (Button) view.findViewById(R.id.tName);
                 b.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -92,7 +105,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         AlertDialog dialog2 = builder2.create();
                         dialog2.show();
                     }
-                });
+                });*/
                 return true;
             }
         });

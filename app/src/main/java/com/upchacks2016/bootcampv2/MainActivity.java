@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         workouts.add(new Workout("Neil", new LatLng(41.393753,  2.1842620), "Parc de l'Estacio Nord", "Yoga", new Time(15,30,0)));
         workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(9,30,0)));
         workouts.add(new Workout("Chelsea", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Pilates", new Time(9,30,0)));
-        workouts.add(new Workout("Paul", new LatLng(41.3672, 2.1554), "Jardins de Joan Maragall", "Bodyweight", new Time(1,30,0)));
+        workouts.add(new Workout("Paul", new LatLng(41.3672, 2.1554), "Jardins de Joan Maragall", "Bodyweight Workout", new Time(1,30,0)));
         workouts.add(new Workout("Leah", new LatLng(41.393753,  2.1842620), "Parc de l'Estacio Nord", "Yoga", new Time(15,30,0)));
         workouts.add(new Workout("Ron", new LatLng(41.387,2.17007), "Placa Catalunya", "Running", new Time(9,30,0)));
         workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(9,30,0)));
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
                 LatLng location = workouts.get(position).location;
                 String locName = workouts.get(position).locName;
+                Time time = workouts.get(position).time;
                 //LatLng location = new LatLng(dlat, dlng);
                 Intent goToMap = new Intent(getApplicationContext(), MapsActivity.class);
                 Bundle mapInfo = new Bundle();
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 mapInfo.putString("locName", locName);
                 mapInfo.putString("trainerName", workouts.get(position).trainerName);
                 mapInfo.putString("activity", workouts.get(position).activity);
+                mapInfo.putSerializable("time", time);
 
                 //goToMap.putExtras("location", location);
                 //goToMap.putExtra("locName", locName);

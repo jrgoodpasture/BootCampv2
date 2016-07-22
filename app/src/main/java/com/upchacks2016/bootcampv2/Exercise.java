@@ -17,14 +17,14 @@ public class Exercise extends Activity {
 
         setContentView(R.layout.exercisewindow);
 
-        Button b = (Button) findViewById(R.id.tName);
+        /*Button b = (Button) findViewById(R.id.tName);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Exercise.this, Pop.class));
             }
-        });
+        });*/
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

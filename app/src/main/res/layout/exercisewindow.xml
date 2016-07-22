@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#752a6f">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trainer Name"
-        android:id="@+id/tName"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="116dp" />
+    android:background="@color/orange">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Workout Title"
-        android:id="@+id/workoutTitle"
+        android:text="Trainer Name"
+        android:id="@+id/trainerNameText"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -26,28 +17,18 @@
         android:layout_height="wrap_content"
         android:inputType="time"
         android:ems="10"
-        android:id="@+id/time"
+        android:id="@+id/timeText"
         android:text="12:00"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/trainerNameText"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/desc"
-        android:layout_below="@+id/tName"
-        android:layout_alignParentStart="true"
-        android:text="Description" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/price"
-        android:layout_below="@+id/time"
-        android:layout_alignParentStart="true"
-        android:text="Price" />
+        android:id="@+id/placeText"
+        android:layout_below="@+id/timeText"
+        android:layout_alignParentStart="false"
+        android:text="Place" />
 </RelativeLayout>
