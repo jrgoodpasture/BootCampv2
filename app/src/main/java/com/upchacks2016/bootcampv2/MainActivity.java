@@ -76,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        Button createButton = (Button) findViewById(R.id.createButton);
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         workoutList = (ListView) findViewById(R.id.listView);
         workoutList.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
@@ -86,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
         workouts.add(new Workout("Paul", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Sprints", new Time(1,30,0)));
         workouts.add(new Workout("Neil", new LatLng(41.393753,  2.1842620), "Parc de l'Estacio Nord", "Yoga", new Time(15,30,0)));
         workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(9,30,0)));
+        workouts.add(new Workout("Chelsea", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Pilates", new Time(9,30,0)));
+        workouts.add(new Workout("Paul", new LatLng(41.3672, 2.1554), "Jardins de Joan Maragall", "Bodyweight", new Time(1,30,0)));
+        workouts.add(new Workout("Leah", new LatLng(41.393753,  2.1842620), "Parc de l'Estacio Nord", "Yoga", new Time(15,30,0)));
+        workouts.add(new Workout("Ron", new LatLng(41.387,2.17007), "Placa Catalunya", "Running", new Time(9,30,0)));
+        workouts.add(new Workout("Jacob", new LatLng(41.3896369,2.1172903), "Parc de la Pedrables", "Jogging", new Time(9,30,0)));
+        workouts.add(new Workout("Carl", new LatLng(41.3865, 2.2028), "Port Olimpic", "Olympic Training", new Time(9,30,0)));
+
+
 
         workoutAdapter adapter = new workoutAdapter(this, workouts);
         workoutList.setAdapter(adapter);
@@ -100,6 +115,9 @@ public class MainActivity extends AppCompatActivity {
                 Bundle mapInfo = new Bundle();
                 mapInfo.putParcelable("location", location);
                 mapInfo.putString("locName", locName);
+                mapInfo.putString("trainerName", workouts.get(position).trainerName);
+                mapInfo.putString("activity", workouts.get(position).activity);
+
                 //goToMap.putExtras("location", location);
                 //goToMap.putExtra("locName", locName);
                 goToMap.putExtras(mapInfo);

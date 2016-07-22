@@ -48,7 +48,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //LatLng location = new LatLng(41.3896369,2.1172903);
         mMap.addMarker(new MarkerOptions().position(location).title(locName));
 
-
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(location)      // Sets the center of the map to Mountain View
                 .zoom(17)                   // Sets the zoom
