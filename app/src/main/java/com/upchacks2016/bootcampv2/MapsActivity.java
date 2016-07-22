@@ -1,8 +1,12 @@
 package com.upchacks2016.bootcampv2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -10,6 +14,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -24,6 +29,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -56,5 +62,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        final Activity activity = this;
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setTitle("EGGS R SIDES");
+
+                View view = View.inflate(activity, R.layout.exercisewindow, null);
+
+                builder.setView(view);
+                builder.setPositiveButton("OKAY", null);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                Button b = (Button) view.findViewById(R.id.tName);
+                b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(activity);
+                        builder2.setTitle("TRAIN OR PRO FEEL");
+
+                        View view2 = View.inflate(activity, R.layout.userwindow, null);
+
+                        builder2.setView(view2);
+                        builder2.setPositiveButton("OKAY", null);
+
+                        AlertDialog dialog2 = builder2.create();
+                        dialog2.show();
+                    }
+                });
+                return true;
+            }
+        });
     }
 }

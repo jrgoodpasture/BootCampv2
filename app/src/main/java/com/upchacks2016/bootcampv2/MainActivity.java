@@ -37,45 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button a = (Button) findViewById(R.id.sidebarButton);
-
-        final Activity activity = this;
-        a.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(MainActivity.this, Exercise.class));
-                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setTitle("EGGS R SIDES");
-
-                View view = View.inflate(activity, R.layout.exercisewindow, null);
-
-                builder.setView(view);
-                builder.setPositiveButton("OKAY", null);
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-                Button b = (Button) view.findViewById(R.id.tName);
-                b.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AlertDialog.Builder builder2 = new AlertDialog.Builder(activity);
-                        builder2.setTitle("TRAIN OR PRO FEEL");
-
-                        View view2 = View.inflate(activity, R.layout.userwindow, null);
-
-                        builder2.setView(view2);
-                        builder2.setPositiveButton("OKAY", null);
-
-                        AlertDialog dialog2 = builder2.create();
-                        dialog2.show();
-                    }
-                });
-
-
-            }
-        }));
-
 
         workoutList = (ListView) findViewById(R.id.listView);
         workoutList.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
